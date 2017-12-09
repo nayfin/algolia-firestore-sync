@@ -1,6 +1,6 @@
 {
   "name": "algolia-firestore-sync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A helper for syncing Algolia indices with Firestore from Firebase",
   "main": "index.js",
   "scripts": {
