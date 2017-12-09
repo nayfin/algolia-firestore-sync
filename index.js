@@ -10,9 +10,10 @@ const removeObject = (index, key) => {
 // Takes an the Algolia index and data to be added or updated to
 const upsertObject = ( index, data ) => {
   // then it adds or updates it
+  console.log('index:', index);
   return index.saveObject(data, (err, content) => {
     if (err) throw err
-    console.log('Book Updated in Algolia Index', data.objectID)
+    console.log(`Document ${ data.objectID} Updated in Algolia Index `)
   })
 }
 
