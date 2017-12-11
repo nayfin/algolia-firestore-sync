@@ -17,7 +17,7 @@ const upsertObject = ( index, data ) => {
   })
 }
 
-// Takes an Algolia index and a Firestore event
+// Takes an Algolia index and a Firestore event and uses event data to keep them in sync
 exports.syncAlgoliaWithFirestore = (index, event) => {
   
   const data = event.data.data(); // extract data from Firestore event
