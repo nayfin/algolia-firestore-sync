@@ -4,7 +4,7 @@ const removeObject = (index, key) => {
   // then it deletes the document
   return index.deleteObject(key, (err) => {
     if (err) throw err
-    console.log('Key Removed from Algolia Index', bookId)
+    console.log( 'Key Removed from Algolia Index', key )
   })
 }
 // Takes an the Algolia index and data to be added or updated to
@@ -13,7 +13,7 @@ const upsertObject = ( index, data ) => {
   console.log('index:', index);
   return index.saveObject(data, (err, content) => {
     if (err) throw err
-    console.log(`Document ${ data.objectID} Updated in Algolia Index `)
+    console.log(`Document ${data.objectID} Updated in Algolia Index `)
   })
 }
 
@@ -22,7 +22,7 @@ exports.syncAlgoliaWithFirestore = (index, event) => {
   
   const data = event.data.data(); // extract data from Firestore event
   const key = event.data.id;      // gets the id of the document changed
-
+  console.log("key", key);
   // If no data then it was a delete event
   if (!data) {
     // so delete the document from Algolia index
