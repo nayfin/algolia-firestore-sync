@@ -19,9 +19,10 @@ const upsertObject = ( index, data ) => {
 
 // Takes an Algolia index and a Firestore event and uses event data to keep them in sync
 exports.syncAlgoliaWithFirestore = (index, event) => {
-  console.log(event);
+  console.log('event', event);
   const data = event.data.data(); // extract data from Firestore event
-  const key = event.data.id;      // gets the id of the document changed
+  console.log('data', data);
+  const key = event.data.params.id;      // gets the id of the document changed
   console.log("key", key);
   // If no data then it was a delete event
   if (!data) {
