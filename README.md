@@ -13,8 +13,8 @@ const algolia = algoliasearch(functions.config().algolia.appid, functions.config
 const index = algolia.initIndex('ingredients');
 
 exports.syncIngredients = functions.firestore.document('/<CollectionName>/{id}').onWrite(
-  event => {
-    return algoliaSync.syncAlgoliaWithFirestore(index, event)
+  (change, context) => {
+    return algoliaSync.syncAlgoliaWithFirestore(index, change, context)
   }
 );
 ```
